@@ -84,6 +84,7 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
 | 08058E08 | leaf conditional byte set (`if (p[8] == 0) p[8] = 60`) that still pushes lr; no `-fprologue-bugfix` | #2498 |
 | 080E73F8 | leaf s32 compare (`*(s32 *)(p + 0x7C) > 3`) that still pushes lr; no `-fprologue-bugfix` | #2498 |
 | 0801C084 | leaf indexed byte read through a nullable pointer (sibling of 0801C09C) that still pushes lr; no `-fprologue-bugfix` | #2498 |
+| 080B66DC | leaf u16 zero test (`*(u16 *)(p + 0x1A) == 0`) that still pushes lr; no `-fprologue-bugfix` | #2498 |
 
 ## Log
 
@@ -116,7 +117,7 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
   lr verified without `-fprologue-bugfix` and put on the coordinator skip list until #2498 merges;
   080BA948 (two stubs, #2628) held as pending split. A claim PR (#2528) was rejected on re-check after
   its claim had already merged.
-- 2026-10-14: 37 more leaves that push lr added to `[function_cflags]` (080E4720, 0802FED0, 0800B394,
+- 2026-10-14: 38 more leaves that push lr added to `[function_cflags]` (080E4720, 0802FED0, 0800B394,
   08056084, 0800B234, 0801C0B4, 080165BC, 0800B3A8, 08002A78, 0803D7FC, 080475C4, 080C1178, 080165A8, 0804E28C,
   080D2208, 080750C0, 080E9E38,
   0805009C, 08000E64, 0803661C, 0800C18C,
@@ -124,5 +125,6 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
   080C1F10, 0801C09C, 08070ED0, 080B9C8C,
   080B953C, 08090A0C, 0806B864,
   0801D60C, 08015F5C, 080C1760,
-  08058E08, 080E73F8, 0801C084), each verified without
+  08058E08, 080E73F8, 0801C084,
+  080B66DC), each verified without
   `-fprologue-bugfix`.
