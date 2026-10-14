@@ -32,3 +32,9 @@ jobs:
           if [ -n "$(git log origin/main..HEAD)" ]; then
             git push || { git pull -q --rebase && git push; }
           fi
+      # Tell the dcomp tracker that claims may have expired. Best effort, the tracker also polls.
+      - run: |
+          curl -fsS -X POST -H "Authorization: Bearer $DCOMP_API_KEY" "$DCOMP_SYNC_URL"
+        env:
+          DCOMP_API_KEY: ${{ secrets.DCOMP_API_KEY }}
+          DCOMP_SYNC_URL: ${{ secrets.DCOMP_SYNC_URL }}
