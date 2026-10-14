@@ -50,6 +50,13 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
 | 080E4720 | leaf store through a pointer field if non-null that still pushes lr; no `-fprologue-bugfix` | #2452 |
 | 0802FED0 | leaf s32 abs at +0x164 that still pushes lr; no `-fprologue-bugfix` | #2452 |
 | 0800B394 | leaf byte test (`p[10] != 0`) that still pushes lr; no `-fprologue-bugfix` | #2452 |
+| 08056084 | leaf `return g != 0` on a global that still pushes lr; no `-fprologue-bugfix` | #2882 |
+| 0800B234 | leaf masked u16 test that still pushes lr; no `-fprologue-bugfix` | #2844 |
+| 0801C0B4 | leaf byte read through a nullable pointer field that still pushes lr; no `-fprologue-bugfix` | #2792 |
+| 080165BC | leaf range test (`a - 53 <= 3`) that still pushes lr; no `-fprologue-bugfix` | #2705 |
+| 0800B3A8 | leaf byte test (`p[11] != 0`) that still pushes lr; no `-fprologue-bugfix` | #2664 |
+| 08002A78 | leaf u8 compare (`a > 3`) that still pushes lr; no `-fprologue-bugfix` | #2616 |
+| 0803D7FC | leaf `a ? 1 : 2` that still pushes lr; no `-fprologue-bugfix` | #2564 |
 
 ## Log
 
@@ -78,5 +85,6 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
 - 2026-10-14: Per-function compiler flags added (`[function_cflags]`). 0802BE10, 0805DF60 and
   0805BC58 match without `-fprologue-bugfix` (a jump present at reload leaves a leaf pushing
   lr), so they are back in play and off the coordinator's skip list.
-- 2026-10-14: 080E4720, 0802FED0 and 0800B394 added to `[function_cflags]` (leaves that push lr,
-  verified without `-fprologue-bugfix`).
+- 2026-10-14: 10 more leaves that push lr added to `[function_cflags]` (080E4720, 0802FED0, 0800B394,
+  08056084, 0800B234, 0801C0B4, 080165BC, 0800B3A8, 08002A78, 0803D7FC), each verified without
+  `-fprologue-bugfix`.
