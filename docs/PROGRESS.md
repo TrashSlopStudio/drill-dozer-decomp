@@ -47,6 +47,9 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
 | 0809F21C | leaf compare-and-store byte that still pushes lr; no `-fprologue-bugfix` | #2227 |
 | 08015F70 | leaf s16 divide by 16 that still pushes lr; no `-fprologue-bugfix` | #2227 |
 | 08044A28 | leaf byte compare (`p[0x82] == 4`) that still pushes lr; no `-fprologue-bugfix` | #2227 |
+| 080E4720 | leaf store through a pointer field if non-null that still pushes lr; no `-fprologue-bugfix` | #2452 |
+| 0802FED0 | leaf s32 abs at +0x164 that still pushes lr; no `-fprologue-bugfix` | #2452 |
+| 0800B394 | leaf byte test (`p[10] != 0`) that still pushes lr; no `-fprologue-bugfix` | #2452 |
 
 ## Log
 
@@ -75,3 +78,5 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
 - 2026-10-14: Per-function compiler flags added (`[function_cflags]`). 0802BE10, 0805DF60 and
   0805BC58 match without `-fprologue-bugfix` (a jump present at reload leaves a leaf pushing
   lr), so they are back in play and off the coordinator's skip list.
+- 2026-10-14: 080E4720, 0802FED0 and 0800B394 added to `[function_cflags]` (leaves that push lr,
+  verified without `-fprologue-bugfix`).
