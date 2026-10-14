@@ -34,7 +34,8 @@ jobs:
           fi
       # Tell the dcomp tracker that claims may have expired. Best effort, the tracker also polls.
       - run: |
-          curl -fsS -X POST -H "Authorization: Bearer $DCOMP_API_KEY" "$DCOMP_SYNC_URL"
+          curl -fsS --max-time 10 -X POST -H "Authorization: Bearer $DCOMP_API_KEY" "$DCOMP_SYNC_URL" \
+            || echo "::warning::dcomp notification failed; the tracker will catch up on its next poll"
         env:
           DCOMP_API_KEY: ${{ secrets.DCOMP_API_KEY }}
           DCOMP_SYNC_URL: ${{ secrets.DCOMP_SYNC_URL }}
