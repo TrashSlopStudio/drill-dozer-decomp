@@ -55,6 +55,7 @@ trusted = []
 080C1F10 = ["-mthumb-interwork", "-Wimplicit", "-Wparentheses", "-O2", "-fhex-asm"]
 080D2208 = ["-mthumb-interwork", "-Wimplicit", "-Wparentheses", "-O2", "-fhex-asm"]
 080E4720 = ["-mthumb-interwork", "-Wimplicit", "-Wparentheses", "-O2", "-fhex-asm"]
+080E73F8 = ["-mthumb-interwork", "-Wimplicit", "-Wparentheses", "-O2", "-fhex-asm"]
 080E9E38 = ["-mthumb-interwork", "-Wimplicit", "-Wparentheses", "-O2", "-fhex-asm"]
 
 [aliases]
