@@ -86,6 +86,7 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
 | 0801C084 | leaf indexed byte read through a nullable pointer (sibling of 0801C09C) that still pushes lr; no `-fprologue-bugfix` | #2498 |
 | 080B66DC | leaf u16 zero test (`*(u16 *)(p + 0x1A) == 0`) that still pushes lr; no `-fprologue-bugfix` | #2498 |
 | 08005390 | leaf loop filling a 128-byte table with 0..127 that still pushes lr; no `-fprologue-bugfix` | #2498 |
+| 0805BDD8 | `func_08018E94(tbl + a*32, 112, 32)`; ROM keeps a dead second copy of the extended u8 index (`adds r2,r0,#0; adds r1,r0,#0`), released twice after ~25 tries each (try T434's dead-test form) | — |
 
 ## Log
 
@@ -142,3 +143,6 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
   2724 / 9487 functions solved.
 - 2026-10-15: Tip T451 added, T18 extended; #5871 rejected (counter-example also matches). Four more
   missed-start reports (#5782, #5837, #5897, #6010) are right but fail boundaries.py check. 2862 / 9487 functions solved.
+- 2026-10-15: Tips T452-T453 added; T09, T10, T144, T178, T240, T434, T439 and T447 extended (all with
+  desktop counter-examples). 0805BDD8 skipped after two releases. Three more missed-start reports (#6159,
+  #6310, #6321) are right but fail boundaries.py check. 3169 / 9487 functions solved.
