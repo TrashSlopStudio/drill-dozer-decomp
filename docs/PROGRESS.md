@@ -146,3 +146,5 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
 - 2026-10-15: Tips T452-T453 added; T09, T10, T144, T178, T240, T434, T439 and T447 extended (all with
   desktop counter-examples). 0805BDD8 skipped after two releases. Three more missed-start reports (#6159,
   #6310, #6321) are right but fail boundaries.py check. 3169 / 9487 functions solved.
+- 2026-10-15: Maintainer applied 20 verified missed-start splits directly on main (57e83492), closing 19 reports;
+  functions.csv now lists 9507 rows. 080C376C (#4114) waits for its claim to end. T01 extended (u32 stored byte param).
