@@ -129,3 +129,6 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
   08058E08, 080E73F8, 0801C084,
   080B66DC, 08005390), each verified without
   `-fprologue-bugfix`.
+- 2026-10-15: Solve PRs may now carry src/func_ADDR.cflags; the coordinator skip list of lr-pushing leaves was emptied
+  and those are being solved directly. Tips T439-T443 added, T53/T133/T430 extended; ten flag issues closed
+  as fixed by #2498. Splits at 08029AFC (#3501) and 0800C018 (#2975) are right but fail boundaries.py check.
