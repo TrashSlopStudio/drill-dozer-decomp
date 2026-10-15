@@ -135,3 +135,5 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
 - 2026-10-15: Tips T444-T446 added. Workers now ship lr-pushing leaves with their own .cflags routinely. Seven
   missed-start reports (two functions in one row, or a lone bx lr after a pool) are right but fail
   boundaries.py check (no call or pointer to the second start); they are held as pending splits.
+- 2026-10-15: Tip T447 added (u8 local for a branchless != 0 flag); T434 now notes that leaves with a plain
+  conditional keep push {lr} with just a .cflags file. Progress passed 4% (2402 functions).
