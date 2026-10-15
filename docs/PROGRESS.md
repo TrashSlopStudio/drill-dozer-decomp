@@ -132,3 +132,6 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
 - 2026-10-15: Solve PRs may now carry src/func_ADDR.cflags; the coordinator skip list of lr-pushing leaves was emptied
   and those are being solved directly. Tips T439-T443 added, T53/T133/T430 extended; ten flag issues closed
   as fixed by #2498. Splits at 08029AFC (#3501) and 0800C018 (#2975) are right but fail boundaries.py check.
+- 2026-10-15: Tips T444-T446 added. Workers now ship lr-pushing leaves with their own .cflags routinely. Seven
+  missed-start reports (two functions in one row, or a lone bx lr after a pool) are right but fail
+  boundaries.py check (no call or pointer to the second start); they are held as pending splits.
