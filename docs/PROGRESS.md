@@ -137,3 +137,6 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
   boundaries.py check (no call or pointer to the second start); they are held as pending splits.
 - 2026-10-15: Tip T447 added (u8 local for a branchless != 0 flag); T434 now notes that leaves with a plain
   conditional keep push {lr} with just a .cflags file. Progress passed 4% (2402 functions).
+- 2026-10-15: Tips T448-T450 added; T144, T155, T202, T334, T345 and T440 extended. Four more missed-start
+  reports (08006BE8, 0807E8D4, 08030EF8, 08016B1C) are right but fail boundaries.py check; held as pending splits.
+  2724 / 9487 functions solved.
