@@ -140,3 +140,5 @@ Built with their own flags (`[function_cflags]` in `pool.toml`):
 - 2026-10-15: Tips T448-T450 added; T144, T155, T202, T334, T345 and T440 extended. Four more missed-start
   reports (08006BE8, 0807E8D4, 08030EF8, 08016B1C) are right but fail boundaries.py check; held as pending splits.
   2724 / 9487 functions solved.
+- 2026-10-15: Tip T451 added, T18 extended; #5871 rejected (counter-example also matches). Four more
+  missed-start reports (#5782, #5837, #5897, #6010) are right but fail boundaries.py check. 2862 / 9487 functions solved.
