@@ -7,7 +7,7 @@ workflow keeps the line below current (`python3 tools/pool.py progress --write`)
 markers in place.
 
 <!-- progress:start -->
-77560 / 1014024 bytes solved (7.65%), 3461 / 9507 functions
+78904 / 1014024 bytes solved (7.78%), 3494 / 9507 functions
 <!-- progress:end -->
 
 ## Setup (docs/NEW_PROJECT.md)
